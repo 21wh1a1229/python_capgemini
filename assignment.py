@@ -1,3 +1,50 @@
+#assignment
+inventory = [
+    #name,    category,     unit_price,  unit_sold,  unit_left
+    ["Strawberry", "Fruit",    3.50,        40,       10],
+    ["Broccoli",    "Vegetable", 2.20,      25,        81],
+    ["Cheddar",     "Dairy", 5.00,          18,         4],
+    ["Baguette",   "Bakery", 2.80,         35,          2],
+    ["Blueberry",   "Fruit", 4.00,          22,         8],
+    ["Spinach",    "Vegetable", 1.80,      30,         12],
+    ["Yogurt",     "Dairy",   1.20,        50,         10],
+    ["Croissant", "Bakery",   3.00,        28,         3],]
+
+#total revenue
+def total_revenue():
+    total_rev=0
+    for item in inventory:
+       total_rev +=item[2] * item[3]
+       return total_rev
+print(f'total revenue:{total_revenue()}')
+
+#low stock
+print('low stock items (stock<5):')
+for item in inventory:
+    name=item[0]
+    stock_left=item[4]
+    if stock_left<5:
+        print("_", name)
+
+#category wise revenue
+category_rev={}
+for item in inventory:
+    category =item[1]
+    revenue=item[2]*item[3]
+    if category in category_rev:
+        category_rev[category] += revenue
+    else:
+        category_rev[category] = revenue
+
+print("category-wise revenue:")
+
+for category,revenue in category_rev.items():
+    print(f'{category}: ${revenue :.2f}')
+
+
+
+#assignment 1
+
 university_data = {
     "S101": {
         "name": "Alice Johnson",
@@ -147,24 +194,24 @@ display_all_students()
 
 #assignment 3
 
-#class Department:
-total_depts = 0
+class Department:
+    total_depts = 0  # Class variable to keep track of department count
 
-def __init__(self, deptid, name, location, hod):
+    def __init__(self, deptid, name, location, hod):
         self.deptid = deptid
         self.name = name
         self.location = location
         self.hod = hod
-        Department.total_depts += 1
+        Department.total_depts += 1  # Capital 'D' to refer to the class name correctly
 
-def display_info(self):
+    def display_info(self):
         print(f"\nDepartment ID: {self.deptid}")
         print(f"Name         : {self.name}")
         print(f"Location     : {self.location}")
         print(f"HOD          : {self.hod}")
 
-@classmethod
-def display_total_departments(cls):
+    @classmethod
+    def display_total_departments(cls):
         print(f"\nTotal Departments in Organization: {cls.total_depts}")
 
 
@@ -179,8 +226,8 @@ for i in range(n):
     name = input("Enter Department Name: ")
     location = input("Enter Department Location: ")
     hod = input("Enter HOD Name: ")
-    
-    dept = Department(deptid, name, location, hod)
+
+    dept = Department(deptid, name, location, hod)  # Use 'Department', not 'department'
     departments.append(dept)
 
 for dept in departments:
@@ -198,7 +245,6 @@ for dept in departments:
 if not found:
     print("Department ID not found.")
 
-
 search_name = input("\nEnter Department Name to search (partial or full): ").lower()
 matched = False
 
@@ -215,8 +261,9 @@ for dept in departments:
 
 if not matched:
     print("No department names matched your search.")
-Department.display_total_departments()
 
+
+Department.display_total_departments() 
 
 
     
