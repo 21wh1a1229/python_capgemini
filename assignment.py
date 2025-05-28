@@ -1,4 +1,4 @@
-#assignment
+"""#assignment
 inventory = [
     #name,    category,     unit_price,  unit_sold,  unit_left
     ["Strawberry", "Fruit",    3.50,        40,       10],
@@ -264,6 +264,26 @@ if not matched:
 
 
 Department.display_total_departments() 
+
+
+"""
+#assignement 4
+
+# Step 1: Write new initial content
+with open('example_file.txt', 'w') as file:
+    file.write("Welcome to the initial file.\n")
+print("New initial content written.")
+
+# Step 2: Append new content
+with open('example_file.txt', 'a') as file:
+    file.write(" Added as a continuation.\n")
+print("New content appended.")
+
+# Step 3: Read and print file content
+with open('example_file.txt', 'r') as file:
+    content = file.read()
+print("File content:\n" + content)
+
 
 
     
